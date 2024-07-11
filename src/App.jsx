@@ -1,12 +1,13 @@
+import Navbar from "./components/Navbar"
 
-import './App.css'
 
-function App() {
-  
-
+const App = () => {
   return (
     <>
-      
+    <Navbar></Navbar>
+    {/* <GreetingByFunction name="rudra"/> */}
+    
+  
     </>
   )
 }
