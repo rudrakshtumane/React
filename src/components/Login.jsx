@@ -1,25 +1,43 @@
 import {useState} from 'react'
+import Toast from './Toast';
+import { useNavigate } from 'react-router-dom';
 
-const Form = () => {
 
+const Login = () => {
 
 const [email, setEmail] =useState('');
 const [password, setPassword] =useState('');
+const [toast, setToast] = useState({ message: '', type: '', show: false });
+const navigate = useNavigate();
 
-const send = {email: email, password: password}
-console.log(send);
 
-const handleSubmit = (e) => {
-    e.preventDefault();
-    
-}
+
+
+let userData = localStorage.getItem('user')
+
+userData = JSON.parse(userData)
+
+const handleSubmit = () => {
+    if (email == userData["email"] && password ==  userData["password"]) {
+        showToast('Login successful!', 'success');
+       navigate('/Product')
+      } else {
+        showToast('Invalid credentials', 'error'); 
+      }
+};
+
+const showToast = (message, type) => {
+    setToast({ message, type, show: true });
+    setTimeout(() => setToast({ ...toast, show: false }), 5000);
+  };
+
 
 
   return (
     <>
-    <div className="container w-[400px] place-content-center justify-center mx-[540px] border border-sky-500 p-5" >
+    <div className="container min-w-[400px] place-content-center justify-center mx-auto border border-sky-500 p-5 rounded-lg mt-[150px]" >
         <h1 className="text-[50px] text-center m-5">Login</h1>
-    
+
 <label className="input input-bordered flex items-center gap-2 mb-4 ">
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -40,8 +58,10 @@ const handleSubmit = (e) => {
 </label>
 <button className="btn btn-accent w-[358px] mb-5" onClick={handleSubmit}>Submit</button>
 </div>
+
+{toast.show && <Toast message={toast.message} type={toast.type} onClose={() => setToast({ ...toast, show: false })} />}
     </>
   )
 }
 
-export default Form
+export default Login 

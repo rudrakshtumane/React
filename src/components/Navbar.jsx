@@ -1,10 +1,15 @@
+import { Link }  from "react-router-dom";
 
 
 const Navbar = () => {
+
+
+
+
     return (
       <>
-  
-  <div className="navbar bg-black">
+ 
+  <div className="navbar bg-black w-full ">
     <div className="navbar-start">
       <div className="dropdown">
         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -35,25 +40,19 @@ const Navbar = () => {
           <li><a>About Us</a></li>
         </ul>
       </div>
-      <a className="btn btn-ghost text-xl text-[#e83333]">Stock OG</a>
+      <a className="btn btn-ghost text-xl text-[#ffffff]">JACOB & Co. </a>
     </div>
     <div className="navbar-center hidden lg:flex">
       <ul className="menu menu-horizontal px-1">
-        <li><a className="text-[#e83333]">Home</a></li>
-        <li>
-          <details>
-            <summary className="text-[#e83333]">Courses</summary>
-            <ul className="p-2">
-              <li><a className="text-[#e83333]">Online</a></li>
-              <li><a className="text-[#e83333]">Offline</a></li>
-            </ul>
-          </details>
-        </li>
-        <li><a className="text-[#e83333]">About Us</a></li>
+        <li><Link to="/" className="text-[#ffffff]">Home</Link></li>
+        <li><Link to="/about" className="text-[#ffffff]">About Us</Link></li>
+        <li><Link to="/offerings" className="text-[#ffffff]">Offerings</Link></li>
       </ul>
     </div>
-    <div className="navbar-end">
-      <a className="btn btn-ghost text-[#e83333]">Contact</a>
+    <div className="navbar-end ">
+    <Link to="/ViewCart" className="btn btn-ghost text-[#ffffff]">Cart</Link>
+      <Link to="/Registration" className="btn btn-ghost text-[#ffffff]">Sign Up</Link>
+      <Link to="/login" className="btn btn-ghost text-[#ffffff]">Login</Link>
     </div>
   </div>
   
