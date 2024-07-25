@@ -23,7 +23,7 @@ const Product = ({data}) => {
       ))}
     </div>
    </div>
-
+  
   )
 }
 

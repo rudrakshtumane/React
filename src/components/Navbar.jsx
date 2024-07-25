@@ -53,6 +53,7 @@ const Navbar = () => {
     <Link to="/ViewCart" className="btn btn-ghost text-[#ffffff]">Cart</Link>
       <Link to="/Registration" className="btn btn-ghost text-[#ffffff]">Sign Up</Link>
       <Link to="/login" className="btn btn-ghost text-[#ffffff]">Login</Link>
+      <Link to="/" className="btn btn-ghost text-[#ffffff]">Logout</Link>
     </div>
   </div>
   
