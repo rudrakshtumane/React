@@ -12,15 +12,15 @@ const Registration = () => {
 
  const navigate = useNavigate()
 
-  const payLoad = {userName,email,password};
+  const saveRegisteration = {userName,email,password};
 
 const handleSubmit = (event) => {
       event.preventDefault();
     if(userName !== "" && email !== "" && password !== ""){
         showToast('Registration Successful!', 'success');
-         localStorage.setItem('user', JSON.stringify(payLoad))
+         localStorage.setItem('user', JSON.stringify(saveRegisteration))
       
-        console.log("userData from localStorage", payLoad);
+        console.log("userData from localStorage", saveRegisteration);
       navigate('/login')
     }
     else{
